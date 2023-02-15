@@ -7,4 +7,8 @@ attr_reader :info_hash, :name, :age, :scores
     @age = info_hash[:age]
     @scores = []
   end
+  
+  def log_score(score)
+    @scores << score
+  end
 end
