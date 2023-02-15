@@ -11,4 +11,15 @@ describe Gradebook do
       expect(gradebook.courses).to eq([])
     end
   end
+
+  describe "#add_course" do
+    it "adds courses to gradebook" do
+      course = Course.new("Calculus", 2)
+      gradebook = Gradebook.new("Mr.Geralt")
+
+      expect(gradebook.courses).to eq([])
+      gradebook.add_course(course)
+      expect(gradebook.courses).to eq([course])
+    end
+  end
 end
