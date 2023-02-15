@@ -18,7 +18,15 @@ class Gradebook
     student_hash
   end
 
-  def students_below(threshold)
-    @courses.@students
+  def students_below(threshold) #return array of student objects
+    student_array = []
+    @courses.each do |course|
+      course.students.each do |student|
+        if student.grade < threshold
+          student_array << student
+        end
+      end
+    end
+    student_array
   end
 end
