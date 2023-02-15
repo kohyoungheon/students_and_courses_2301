@@ -22,4 +22,24 @@ describe Gradebook do
       expect(gradebook.courses).to eq([course])
     end
   end
+
+  describe "#list_all_students" do
+    it "lists all students in all courses" do
+      student1 = Student.new({name: "Morgan", age: 21})
+      student2 = Student.new({name: "Jordan", age: 29})
+      student3 = Student.new({name: "Mike", age: 25})
+      course = Course.new("Calculus", 2)
+      course2 = Course.new("Chemistry", 2)
+      gradebook = Gradebook.new("Mr.Geralt")
+
+      course.enroll(student1)
+      course.enroll(student2)
+      course2.enroll(student2)
+      course2.enroll(student3)
+      gradebook.add_course(course)
+      gradebook.add_course(course2)
+
+      expect(gradebook.list_all_students).to eq({course=>[student1, student2], course2=>[student2, student3]})
+    end
+  end
 end
