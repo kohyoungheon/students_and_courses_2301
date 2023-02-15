@@ -37,6 +37,7 @@ describe Course do
       course.enroll(student2)
       expect(course.students).to eq([student1, student2])
       expect(course.enroll(student3)).to eq("This class has 2/2 students")
+      expect(course.full?).to eq(true)
     end
   end
 end
